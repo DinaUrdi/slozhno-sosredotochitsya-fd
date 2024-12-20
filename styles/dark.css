@@ -9,7 +9,6 @@
   --accent-color: #ff0070;
   --accent-hover-decoration-color: #ff007066;
   --accent-decoration-color: #ff0070;
-  --bg-color: #000028;
   --text-color: #f1b2ce;
   --accent-text-color: #000028;
   --heading-text-color: #db00ff;
@@ -20,4 +19,8 @@
     чем стили в медиазапросе предпочтений пользователя
   */
 
+}
+
+.theme-dark .accent {
+  display: block;
 }
