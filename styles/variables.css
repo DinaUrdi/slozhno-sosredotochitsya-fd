@@ -6,6 +6,7 @@
 :root {
   --bg-image: url("../images/cover-image-dark.png");
   --accent-color: #ff0070;
+  --bg-color: #000028;
   --accent-hover-decoration-color: #ff007066;
   --accent-decoration-color: #ff0070;
   --text-color: #f1b2ce;
