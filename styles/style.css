@@ -15,17 +15,17 @@
 
 .header {
   position: relative;
-  min-height: 668px;
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   height: 100vh;
+  min-height: 668px;
 }
 
 .accent {
-  display: block;
   position: absolute;
   top: 13px;
   right: 38px;
+  display: block;
 }
 
 .accent::before {
@@ -47,24 +47,24 @@
   background-color: var(--accent-decoration-color, #ff0070);
 }
 
-.decorated-zone::before {
+.decorated-zone::before, .decorated-zone::after {
   content: "";
   position: absolute;
-  top: 10px;
-  right: 10px;
   width: 25px;
   height: 25px;
+}
+
+.decorated-zone::before {
+  top: 10px;
+  right: 10px;
   border-top: 1px solid var(--accent-decoration-color, #ff0070);
   border-right: 1px solid var(--accent-decoration-color, #ff0070);
+
 }
 
 .decorated-zone::after {
-  content: "";
-  position: absolute;
   bottom: 10px;
   left: 10px;
-  width: 25px;
-  height: 25px;
   border-bottom: 1px solid var(--accent-decoration-color, #ff0070);
   border-left: 1px solid var(--accent-decoration-color, #ff0070);
 }
@@ -73,10 +73,11 @@
   display: grid;
   justify-self: end;
   align-self: center;
-  margin-top: 22px;
-  margin-right: 9px;
+  margin-top: 20px;
+  margin-right: 10px;
   line-height: 1;
 }
+
 
 .header__theme-menu-list {
   display: flex;
@@ -94,10 +95,15 @@
 }
 
 .header__theme-menu-button:hover {
-  border: 1px solid var(--accent-hover-decoration-color, #ff007066);
+  outline: 1px solid var(--accent-hover-decoration-color, #ff007066);
+  cursor: pointer;
 }
 
 .header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
   border-bottom: 1px solid var(--accent-decoration-color, #ff0070);
 }
 
@@ -107,12 +113,11 @@
 }
 
 .header__title {
-  align-self: center;
-  margin-left: 5px;
-
+  margin-left: 10px;
 }
 
-.header__title-inner {
+.header-footer__title {
+  align-self: center;
   color: var(--heading-text-color, #db00ff);
   font-weight: 700;
   font-size: var(
@@ -187,7 +192,6 @@
     align-self: start;
     margin-top: 20px;
     margin-right: 0;
-    margin-bottom: 0;
   }
 
   .header__theme-menu-list {
@@ -221,7 +225,11 @@
 }
 
 .main-link:focus {
-  border: 1px solid var(--text-color, #f1b2ce);
+  outline: none;
+}
+
+.main-link:focus-visible {
+  outline: 1px solid var(--text-color, #f1b2ce);;
 }
 
 .main__inner {
@@ -236,13 +244,13 @@
   gap: 20px;
 }
 
-.main__description ul {
+.advice-list {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.main__description ul li {
+.advice-list__item {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -284,7 +292,7 @@
     margin: 60px 20px;
   }
 
-  .main__inner:nth-child(odd) {
+  .why, .how {
     display: grid;
     grid-template-columns: 1fr 2fr;
   }
@@ -293,15 +301,11 @@
     gap: 20px;
   }
 
-  .main__inner:nth-child(odd) > .main__title {
-    grid-column: 1/2;
-  }
-
   .main__subtitle {
     max-height: max-content;
   }
 
-  .main__inner:nth-child(even) > .main__title {
+  .what > .main__title {
     max-width: min-content;
   }
 
@@ -345,19 +349,21 @@
     gap: 10px;
   }
 
-  .main__inner:nth-child(even) {
+  .what {
     gap: 20px;
   }
 
-  .main__inner:nth-child(even) > .main__description {
+  .what > .main__description {
     flex-direction: row;
+    flex-wrap: wrap;
   }
 
-  .main__inner:nth-child(even) > .main__title {
+  .what > .main__title {
     max-width: 30%;
   }
-  .main__inner:nth-child(even) > .main__description > .main__card {
+  .what > .main__description > .main__card {
     flex: 1;
+    min-width: 30%;
     max-width: 33.3%;
   }
 }
@@ -369,60 +375,14 @@
 
 .footer {
   position: relative;
-  min-height: 668px;
   display: grid;
   height: 100vh;
+  min-height: 668px;
   color: var(--heading-text-color, #db00ff);
 }
 
 .footer__title {
   justify-self: center;
-  align-self: center;
-  color: var(--heading-text-color, #db00ff);
-  font-weight: 700;
-  font-size: var(
-    --heading-text-size,
-    clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem)
-  );
-  line-height: 0.83;
-  text-shadow: 4px 4px 0 var(--accent-color, #ff0070);
 }
-
-.footer__title::before {
-  content: "";
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 25px;
-  height: 25px;
-  border-top: 1px solid var(--accent-decoration-color, #ff0070);
-  border-right: 1px solid var(--accent-decoration-color, #ff0070);
-}
-
-.footer__title::after {
-  content: "";
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  width: 25px;
-  height: 25px;
-  border-bottom: 1px solid var(--accent-decoration-color, #ff0070);
-  border-left: 1px solid var(--accent-decoration-color, #ff0070);
-}
-
-/* начало медиазапроса для footer */
-@media (width >= 768px) {
-  .footer__title::before {
-    top: 20px;
-    right: 20px;
-  }
-
-  .footer__title::after {
-    bottom: 20px;
-    left: 20px;
-  }
-}
-
-/* окончание медиазапроса для footer */
 
 /* окончание секции footer */
