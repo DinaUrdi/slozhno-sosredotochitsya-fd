@@ -250,12 +250,6 @@
   gap: 20px;
 }
 
-.advice-list__item {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
 .main__card {
   display: flex;
   flex-direction: column;
